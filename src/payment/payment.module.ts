@@ -9,6 +9,7 @@ import { PaymentService } from './payment.service';
 import { QueryHandlers } from './queries/handlers';
 import { PaymentEntity } from '../db/repositories/payment.entity';
 import { PaymentRepository } from '../db/repositories/payment.repository';
+import { RpcExceptionService } from 'src/utils/exception-handling';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { PaymentRepository } from '../db/repositories/payment.repository';
   providers: [
     PaymentService,
     ConfigService,
+    RpcExceptionService,
     ...QueryHandlers,
     ...CommandHandlers,
   ],
