@@ -14,7 +14,7 @@ export class GetPaymentHandler implements IQueryHandler<GetPaymentQuery> {
 
   async execute(query: GetPaymentQuery) {
     const id = query.getPaymentDto;
-    const payment = await this.paymentRepository.findOne({ where: { id } });
+    const payment = await this.paymentRepository.findOne(id);
 
     if (!payment) {
       throw new RpcException({

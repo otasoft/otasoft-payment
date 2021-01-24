@@ -2,7 +2,7 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RpcException } from '@nestjs/microservices';
 
-import { UpdatePaymentCommand } from '../impl/update-payment.command';
+import { UpdatePaymentCommand } from '../impl';
 import { PaymentRepository } from '../../repositories/payment.repository';
 
 @CommandHandler(UpdatePaymentCommand)

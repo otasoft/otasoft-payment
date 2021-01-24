@@ -1,4 +1,4 @@
-import { UpdatePaymentDto } from '../../dto/update-payment.dto';
+import { UpdatePaymentDto } from '../../dto';
 
 export class UpdatePaymentCommand {
   constructor(public readonly updatePaymentDto: UpdatePaymentDto) {}

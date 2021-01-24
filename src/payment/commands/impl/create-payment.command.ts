@@ -1,4 +1,4 @@
-import { CreatePaymentDto } from '../../dto/create-payment.dto';
+import { CreatePaymentDto } from '../../dto';
 
 export class CreatePaymentCommand {
   constructor(public readonly createPaymentDto: CreatePaymentDto) {}

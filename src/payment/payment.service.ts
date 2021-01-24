@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 
-import { CreatePaymentCommand } from './commands/impl';
-import { UpdatePaymentCommand } from './commands/impl/update-payment.command';
-import { CreatePaymentDto } from './dto/create-payment.dto';
-import { GetPaymentDto } from './dto/get-payment.dto';
-import { UpdatePaymentDto } from './dto/update-payment.dto';
+import { CreatePaymentCommand, UpdatePaymentCommand } from './commands/impl';
+import { CreatePaymentDto, GetPaymentDto, UpdatePaymentDto } from './dto';
 import { GetPaymentQuery } from './queries/impl';
 import { PaymentEntity } from './repositories/payment.entity';
 
@@ -26,7 +23,6 @@ export class PaymentService {
   async createPayment(
     createPaymentDto: CreatePaymentDto,
   ): Promise<PaymentEntity> {
-    console.log({ createPaymentDto });
     return this.commandBus.execute(new CreatePaymentCommand(createPaymentDto));
   }
 
