@@ -1,5 +1,4 @@
 import { Controller } from '@nestjs/common';
-import { Body } from '@nestjs/common/decorators/http/route-params.decorator';
 import { MessagePattern } from '@nestjs/microservices';
 
 import { PaymentService } from './payment.service';
@@ -13,22 +12,20 @@ export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
   @MessagePattern({ role: 'payment', cmd: 'get' })
-  async getPaymentById(
-    @Body() getPaymentDto: GetPaymentDto,
-  ): Promise<PaymentEntity> {
+  async getPaymentById(getPaymentDto: GetPaymentDto): Promise<PaymentEntity> {
     return this.paymentService.getPaymentById(getPaymentDto);
   }
 
   @MessagePattern({ role: 'payment', cmd: 'create' })
   async createPayment(
-    @Body() createPaymentDto: CreatePaymentDto,
+    createPaymentDto: CreatePaymentDto,
   ): Promise<PaymentEntity> {
     return this.paymentService.createPayment(createPaymentDto);
   }
 
   @MessagePattern({ role: 'payment', cmd: 'update' })
   async updatePayment(
-    @Body() updatePaymentDto: UpdatePaymentDto,
+    updatePaymentDto: UpdatePaymentDto,
   ): Promise<PaymentEntity> {
     return this.paymentService.updatePayment(updatePaymentDto);
   }
