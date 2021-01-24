@@ -2,7 +2,7 @@ import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 
 import { PaymentService } from './payment.service';
-import { PaymentEntity } from './repositories/payment.entity';
+import { PaymentEntity } from '../db/repositories/payment.entity';
 import { GetPaymentDto, CreatePaymentDto, UpdatePaymentDto } from './dto';
 
 @Controller('payment')

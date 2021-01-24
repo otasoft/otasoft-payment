@@ -2,7 +2,7 @@ import { QueryHandler, IQueryHandler } from '@nestjs/cqrs';
 import { RpcException } from '@nestjs/microservices';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { PaymentRepository } from '../../repositories/payment.repository';
+import { PaymentRepository } from '../../../db/repositories/payment.repository';
 import { GetPaymentQuery } from '../impl';
 
 @QueryHandler(GetPaymentQuery)

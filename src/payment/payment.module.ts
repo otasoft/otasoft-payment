@@ -7,8 +7,8 @@ import { CommandHandlers } from './commands/handlers';
 import { PaymentController } from './payment.controller';
 import { PaymentService } from './payment.service';
 import { QueryHandlers } from './queries/handlers';
-import { PaymentEntity } from './repositories/payment.entity';
-import { PaymentRepository } from './repositories/payment.repository';
+import { PaymentEntity } from '../db/repositories/payment.entity';
+import { PaymentRepository } from '../db/repositories/payment.repository';
 
 @Module({
   imports: [

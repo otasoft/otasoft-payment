@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { RpcException } from '@nestjs/microservices';
 
 import { CreatePaymentCommand } from '../impl';
-import { PaymentRepository } from '../../repositories/payment.repository';
+import { PaymentRepository } from '../../../db/repositories/payment.repository';
 
 @CommandHandler(CreatePaymentCommand)
 export class CreatePaymentHandler

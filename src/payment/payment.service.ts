@@ -4,7 +4,7 @@ import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreatePaymentCommand, UpdatePaymentCommand } from './commands/impl';
 import { CreatePaymentDto, GetPaymentDto, UpdatePaymentDto } from './dto';
 import { GetPaymentQuery } from './queries/impl';
-import { PaymentEntity } from './repositories/payment.entity';
+import { PaymentEntity } from '../db/repositories/payment.entity';
 
 @Injectable()
 export class PaymentService {
