@@ -6,9 +6,6 @@ export class PaymentEntity extends BaseEntity {
   id: number;
 
   @Column()
-  customer_id: number;
-
-  @Column()
   booking_id: number;
 
   @Column()

@@ -1,9 +1,13 @@
 import { IsNumber } from 'class-validator';
 
-export class CreatePaymentDto {
-  @IsNumber()
-  customer_id: number;
-
+class Payment {
   @IsNumber()
   booking_id: number;
+}
+
+class Booking {}
+
+export class CreatePaymentDto {
+  newPayment: Payment;
+  booking: Booking;
 }
