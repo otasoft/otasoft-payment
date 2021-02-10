@@ -10,4 +10,10 @@ export class PaymentEntity extends BaseEntity {
 
   @Column()
   created_at: Date;
+
+  @Column()
+  amount: number;
+
+  @Column()
+  currency: string;
 }
