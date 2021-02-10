@@ -10,17 +10,21 @@ import { QueryHandlers } from './queries/handlers';
 import { PaymentEntity } from '../db/repositories/payment.entity';
 import { PaymentRepository } from '../db/repositories/payment.repository';
 import { RpcExceptionService } from 'src/utils/exception-handling';
+import { StripeChargeModule } from 'src/stripeCharge/stripeCharge.module';
+import { StripeChargeService } from 'src/stripeCharge/stripeCharge.service';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([PaymentRepository, PaymentEntity]),
     CqrsModule,
+    StripeChargeModule,
   ],
   controllers: [PaymentController],
   providers: [
     PaymentService,
     ConfigService,
     RpcExceptionService,
+    StripeChargeService,
     ...QueryHandlers,
     ...CommandHandlers,
   ],
