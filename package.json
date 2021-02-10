@@ -33,10 +33,12 @@
     "amqp-connection-manager": "^3.2.1",
     "amqplib": "^0.6.0",
     "class-validator": "^0.13.1",
+    "nestjs-stripe": "^0.4.0",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.3",
+    "stripe": "^8.135.0",
     "typeorm": "^0.2.29"
   },
   "devDependencies": {
