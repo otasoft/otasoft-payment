@@ -9,9 +9,9 @@ import { PaymentService } from './payment.service';
 import { QueryHandlers } from './queries/handlers';
 import { PaymentEntity } from '../db/repositories/payment.entity';
 import { PaymentRepository } from '../db/repositories/payment.repository';
-import { RpcExceptionService } from 'src/utils/exception-handling';
-import { StripeChargeModule } from 'src/stripeCharge/stripeCharge.module';
-import { StripeChargeService } from 'src/stripeCharge/stripeCharge.service';
+import { RpcExceptionService } from '../utils/exception-handling';
+import { StripeChargeModule } from '../stripeCharge/stripeCharge.module';
+import { StripeChargeService } from '../stripeCharge/stripeCharge.service';
 
 @Module({
   imports: [

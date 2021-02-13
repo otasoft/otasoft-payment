@@ -5,7 +5,6 @@ import { StripeModule } from 'nestjs-stripe';
 
 import { CommandHandlers } from './commands/handlers';
 import { StripeChargeService } from './stripeCharge.service';
-import { RpcExceptionService } from 'src/utils/exception-handling';
 
 @Module({
   imports: [
@@ -20,10 +19,6 @@ import { RpcExceptionService } from 'src/utils/exception-handling';
     }),
   ],
   controllers: [],
-  providers: [
-    StripeChargeService,
-    ConfigService,
-    ...CommandHandlers,
-  ],
+  providers: [StripeChargeService, ConfigService, ...CommandHandlers],
 })
 export class StripeChargeModule {}

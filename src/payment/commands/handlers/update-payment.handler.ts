@@ -4,7 +4,7 @@ import { RpcException } from '@nestjs/microservices';
 
 import { UpdatePaymentCommand } from '../impl';
 import { PaymentRepository } from '../../../db/repositories/payment.repository';
-import { RpcExceptionService } from 'src/utils/exception-handling';
+import { RpcExceptionService } from '../../../utils/exception-handling';
 
 @CommandHandler(UpdatePaymentCommand)
 export class UpdatePaymentHandler
