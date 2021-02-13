@@ -13,10 +13,12 @@ export class CreateChargeHandler
   ) {}
 
   async execute(command: CreateChargeCommand) {
-    this.stripeClient.charges.create({
+    return this.stripeClient.charges.create({
       amount: command.createChargeDto.amount,
       currency: command.createChargeDto.currency,
-      source: command.createChargeDto.cardToken
+      source: command.createChargeDto.card_token,
+      receipt_email: command.createChargeDto.receipt_email,
+      metadata: command.createChargeDto.metadata as unknown as Stripe.MetadataParam,
     })
   }
 }

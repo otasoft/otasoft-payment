@@ -1,4 +1,9 @@
-import { IsEmail, IsNumber, IsOptional, IsString, Length, IsLowercase } from 'class-validator';
+import { IsEmail, IsNumber, IsOptional, IsString, Length, IsLowercase, ValidateNested } from 'class-validator';
+
+class StripeMetadata {
+  @IsNumber()
+  booking_id: number;
+}
 
 export class CreateChargeDto {
   @IsNumber()
@@ -15,5 +20,8 @@ export class CreateChargeDto {
   receipt_email?: string;
 
   @IsString()
-  cardToken: string;
+  card_token: string;
+
+  @ValidateNested()
+  metadata: StripeMetadata;
 }
