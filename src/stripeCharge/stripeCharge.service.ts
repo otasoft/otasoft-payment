@@ -1,13 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { CommandBus } from '@nestjs/cqrs';
-import { CreateChargeCommand } from './commands/impl';
+import Stripe from 'stripe';
+import { InjectStripe } from 'nestjs-stripe';
+
 import { CreateChargeDto } from './dto';
 
 @Injectable()
 export class StripeChargeService {
-  constructor(private readonly commandBus: CommandBus) {}
+  constructor(
+    @InjectStripe()
+    private readonly stripeClient: Stripe,
+  ) {}
 
   async createCharge(createChargeDto: CreateChargeDto): Promise<any> {
-    return this.commandBus.execute(new CreateChargeCommand(createChargeDto));
+    return this.stripeClient.charges.create({
+      amount: createChargeDto.amount,
+      currency: createChargeDto.currency,
+      source: createChargeDto.card_token,
+      receipt_email: createChargeDto.receipt_email,
+      metadata: (createChargeDto.metadata as unknown) as Stripe.MetadataParam,
+    });
   }
 }

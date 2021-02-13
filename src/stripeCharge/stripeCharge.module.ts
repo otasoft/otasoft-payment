@@ -1,14 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { CqrsModule } from '@nestjs/cqrs';
 import { StripeModule } from 'nestjs-stripe';
 
-import { CommandHandlers } from './commands/handlers';
 import { StripeChargeService } from './stripeCharge.service';
 
 @Module({
   imports: [
-    CqrsModule,
     StripeModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -19,6 +16,6 @@ import { StripeChargeService } from './stripeCharge.service';
     }),
   ],
   controllers: [],
-  providers: [StripeChargeService, ConfigService, ...CommandHandlers],
+  providers: [StripeChargeService, ConfigService],
 })
 export class StripeChargeModule {}

@@ -7,7 +7,6 @@ describe('StripeChargeService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [CqrsModule],
       providers: [StripeChargeService],
     }).compile();
 
