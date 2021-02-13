@@ -16,4 +16,10 @@ export class PaymentEntity extends BaseEntity {
 
   @Column()
   currency: string;
+
+  @Column()
+  stripe_id: string;
+
+  @Column()
+  stripe_status: string;
 }
