@@ -23,7 +23,6 @@ import { RpcExceptionService } from 'src/utils/exception-handling';
   providers: [
     StripeChargeService,
     ConfigService,
-    RpcExceptionService,
     ...CommandHandlers,
   ],
 })

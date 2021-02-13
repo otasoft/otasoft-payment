@@ -1,3 +1,4 @@
+import { CqrsModule } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
 import { StripeChargeService } from './stripeCharge.service';
 
@@ -6,6 +7,7 @@ describe('StripeChargeService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [CqrsModule],
       providers: [StripeChargeService],
     }).compile();
 
