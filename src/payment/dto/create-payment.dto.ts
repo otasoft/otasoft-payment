@@ -12,6 +12,9 @@ class Payment {
   @Length(3, 3)
   @IsLowercase()
   currency: string;
+
+  @IsString()
+  card_token: string;
 }
 
 class Booking {}
@@ -19,7 +22,4 @@ class Booking {}
 export class CreatePaymentDto {
   newPayment: Payment;
   booking: Booking;
-
-  @IsString()
-  cardToken: string;
 }
