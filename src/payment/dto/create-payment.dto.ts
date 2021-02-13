@@ -1,4 +1,5 @@
-import { IsLowercase, IsNumber, IsString, Length } from 'class-validator';
+import { IsEnum, IsNumber, IsString } from 'class-validator';
+import { currencies } from '../constants/constants';
 
 class Payment {
   @IsNumber()
@@ -7,10 +8,7 @@ class Payment {
   @IsNumber()
   amount: number;
 
-  // TODO: maybe we should have a list of valid currencies in the db
-  @IsString()
-  @Length(3, 3)
-  @IsLowercase()
+  @IsEnum(currencies)
   currency: string;
 
   @IsString()
