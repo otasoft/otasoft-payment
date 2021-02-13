@@ -18,9 +18,9 @@ export class UpdatePaymentHandler
   async execute(command: UpdatePaymentCommand) {
     const { id, updatedPayment } = command.updatePaymentDto;
     const { newPayment, booking } = updatedPayment;
-    const { booking_id } = newPayment
+    const { booking_id } = newPayment;
     if (!booking) {
-      this.rpcExceptionService.throwNotFound('Booking does not exist')
+      this.rpcExceptionService.throwNotFound('Booking does not exist');
     }
 
     try {

@@ -15,9 +15,9 @@ import { RpcExceptionService } from 'src/utils/exception-handling';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         apiKey: configService.get('STRIPE_API_KEY'),
-        apiVersion: configService.get('STRIPE_API_VERSION')
-      })
-    })
+        apiVersion: configService.get('STRIPE_API_VERSION'),
+      }),
+    }),
   ],
   controllers: [],
   providers: [

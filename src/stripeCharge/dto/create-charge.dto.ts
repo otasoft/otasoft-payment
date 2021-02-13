@@ -1,4 +1,12 @@
-import { IsEmail, IsNumber, IsOptional, IsString, Length, IsLowercase, ValidateNested } from 'class-validator';
+import {
+  IsEmail,
+  IsNumber,
+  IsOptional,
+  IsString,
+  Length,
+  IsLowercase,
+  ValidateNested,
+} from 'class-validator';
 
 class StripeMetadata {
   @IsNumber()

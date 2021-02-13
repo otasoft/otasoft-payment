@@ -5,13 +5,9 @@ import { CreateChargeDto } from './dto';
 
 @Injectable()
 export class StripeChargeService {
-  constructor(
-    private readonly commandBus: CommandBus,
-  ) {}
+  constructor(private readonly commandBus: CommandBus) {}
 
-  async createCharge(
-    createChargeDto: CreateChargeDto,
-  ): Promise<any> {
+  async createCharge(createChargeDto: CreateChargeDto): Promise<any> {
     return this.commandBus.execute(new CreateChargeCommand(createChargeDto));
   }
 }

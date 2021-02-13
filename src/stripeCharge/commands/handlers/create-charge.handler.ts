@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import Stripe from 'stripe'
+import Stripe from 'stripe';
 import { InjectStripe } from 'nestjs-stripe';
 
 import { CreateChargeCommand } from '../impl';
@@ -8,8 +8,8 @@ import { CreateChargeCommand } from '../impl';
 export class CreateChargeHandler
   implements ICommandHandler<CreateChargeCommand> {
   constructor(
-    @InjectStripe() 
-    private readonly stripeClient: Stripe
+    @InjectStripe()
+    private readonly stripeClient: Stripe,
   ) {}
 
   async execute(command: CreateChargeCommand) {
@@ -18,7 +18,8 @@ export class CreateChargeHandler
       currency: command.createChargeDto.currency,
       source: command.createChargeDto.card_token,
       receipt_email: command.createChargeDto.receipt_email,
-      metadata: command.createChargeDto.metadata as unknown as Stripe.MetadataParam,
-    })
+      metadata: (command.createChargeDto
+        .metadata as unknown) as Stripe.MetadataParam,
+    });
   }
 }
