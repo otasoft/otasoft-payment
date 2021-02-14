@@ -4,7 +4,7 @@ import { RpcException } from '@nestjs/microservices';
 
 import { UpdatePaymentCommand } from '../impl';
 import { PaymentRepository } from '../../../db/repositories/payment.repository';
-import { RpcExceptionService } from 'src/utils/exception-handling';
+import { RpcExceptionService } from '../../../utils/exception-handling';
 
 @CommandHandler(UpdatePaymentCommand)
 export class UpdatePaymentHandler
@@ -18,9 +18,9 @@ export class UpdatePaymentHandler
   async execute(command: UpdatePaymentCommand) {
     const { id, updatedPayment } = command.updatePaymentDto;
     const { newPayment, booking } = updatedPayment;
-    const { booking_id } = newPayment
+    const { booking_id } = newPayment;
     if (!booking) {
-      this.rpcExceptionService.throwNotFound('Booking does not exist')
+      this.rpcExceptionService.throwNotFound('Booking does not exist');
     }
 
     try {
